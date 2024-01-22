@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "GPT Backup",
+    "version": "1.0.0",
+    "description": "A backup / tool for your Custom GPTs",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "downloads"
+    ],
+    "host_permissions": [
+        "*://chat.openai.com/"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js", "popup.js"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
